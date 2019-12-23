@@ -15,12 +15,6 @@ Home.propTypes = {
 	time: PropTypes.number
 };
 
-const badgeStyles = {
-	//write the span styles here
-	background: "white",
-	color: "black"
-};
-
 export function Home(props) {
 	if (props.time >= 60) {
 		minutes = parseInt(props.time / 60);
@@ -34,20 +28,23 @@ export function Home(props) {
 	}
 
 	return (
-		<div className="text-center mt-5">
-			<spam style={badgeStyles}>
+		<div className="cronometer text-center mt-5">
+			<spam className="text-spam">
+				<i className="far fa-clock" />
+			</spam>
+			<spam className="text-spam">
 				{new Intl.NumberFormat("en", {
 					minimumIntegerDigits: 2
 				}).format(hour)}
 			</spam>
-			<spam> - </spam>
-			<spam>
+			<spam> : </spam>
+			<spam className="text-spam">
 				{new Intl.NumberFormat("en", {
 					minimumIntegerDigits: 2
 				}).format(minutes)}
 			</spam>
-			<spam> - </spam>
-			<spam>
+			<spam> : </spam>
+			<spam className="text-spam">
 				{new Intl.NumberFormat("en", {
 					minimumIntegerDigits: 2
 				}).format(seconds)}
